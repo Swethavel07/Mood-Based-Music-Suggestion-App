@@ -1,42 +1,32 @@
-// Get elements from HTML
-const moodSelect = document.getElementById("moodSelect");
-const playlist = document.getElementById("playlist");
+function changeMood() {
+  const mood = document.getElementById("mood").value;
+  const playlist = document.getElementById("playlist");
 
-// Songs data based on mood
-const songs = {
-  happy: [
-    "Happy – Pharrell Williams",
-    "Can't Stop the Feeling",
-    "Uptown Funk"
-  ],
-  sad: [
-    "Someone Like You",
-    "Fix You",
-    "Let Her Go"
-  ],
-  relaxed: [
-    "Weightless",
-    "Let It Be",
-    "Perfect"
-  ]
-};
-
-// Event listener for mood change
-moodSelect.addEventListener("change", function () {
-  const selectedMood = moodSelect.value;
-
-  // Clear previous playlist
   playlist.innerHTML = "";
 
-  // If no mood selected
-  if (selectedMood === "") {
-    return;
+  let songs = [];
+
+  if (mood === "happy") {
+    document.body.style.background = "#ffeaa7";
+    songs = ["Happy Song 1", "Joyful Beats", "Smile Tune"];
+  }
+  else if (mood === "sad") {
+    document.body.style.background = "#74b9ff";
+    songs = ["Sad Melody", "Lonely Night", "Blue Heart"];
+  }
+  else if (mood === "relaxed") {
+    document.body.style.background = "#55efc4";
+    songs = ["Calm Waves", "Peaceful Mind", "Soft Piano"];
+  }
+  else if (mood === "energetic") {
+    document.body.style.background = "#ff7675";
+    songs = ["Power Boost", "Workout Vibes", "Energy Blast"];
   }
 
-  // Display songs for selected mood
-  songs[selectedMood].forEach(function (song) {
-    const li = document.createElement("li");
-    li.innerText = song;
-    playlist.appendChild(li);
+  songs.forEach(song => {
+    const div = document.createElement("div");
+    div.className = "song";
+    div.textContent = song;
+    playlist.appendChild(div);
   });
-});
+}
