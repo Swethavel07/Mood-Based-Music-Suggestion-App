@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mood Music App</title>
+  <title>Mood Based Music App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Mood Based Music</h1>
 
-  <select id="moodSelect">
-    <option value="">Select Mood</option>
-    <option value="happy">Happy</option>
-    <option value="sad">Sad</option>
-    <option value="relaxed">Relaxed</option>
-  </select>
+  <div class="container">
+    <h1>🎵 Mood-Based Music Suggestion App</h1>
 
-  <ul id="playlist"></ul>
+    <select id="mood" onchange="changeMood()">
+      <option value="">-- Select Your Mood --</option>
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="relaxed">Relaxed</option>
+      <option value="energetic">Energetic</option>
+    </select>
+
+    <div id="playlist"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
