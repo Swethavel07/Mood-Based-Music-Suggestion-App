@@ -1,22 +1,32 @@
-const moodSelect = document.getElementById("moodSelect");
-const playlist = document.getElementById("playlist");
+function changeMood() {
+  const mood = document.getElementById("mood").value;
+  const playlist = document.getElementById("playlist");
 
-const songs = {
-  happy: ["Song A", "Song B", "Song C"],
-  sad: ["Song D", "Song E"],
-  relaxed: ["Song F", "Song G"]
-};
-
-moodSelect.addEventListener("change", () => {
   playlist.innerHTML = "";
-  document.body.style.background =
-    moodSelect.value === "happy" ? "#fff59d" :
-    moodSelect.value === "sad" ? "#bbdefb" :
-    moodSelect.value === "relaxed" ? "#c8e6c9" : "#f0f0f0";
 
-  songs[moodSelect.value]?.forEach(song => {
-    const li = document.createElement("li");
-    li.textContent = song;
-    playlist.appendChild(li);
+  let songs = [];
+
+  if (mood === "happy") {
+    document.body.style.background = "#ffeaa7";
+    songs = ["Happy Song 1", "Joyful Beats", "Smile Tune"];
+  }
+  else if (mood === "sad") {
+    document.body.style.background = "#74b9ff";
+    songs = ["Sad Melody", "Lonely Night", "Blue Heart"];
+  }
+  else if (mood === "relaxed") {
+    document.body.style.background = "#55efc4";
+    songs = ["Calm Waves", "Peaceful Mind", "Soft Piano"];
+  }
+  else if (mood === "energetic") {
+    document.body.style.background = "#ff7675";
+    songs = ["Power Boost", "Workout Vibes", "Energy Blast"];
+  }
+
+  songs.forEach(song => {
+    const div = document.createElement("div");
+    div.className = "song";
+    div.textContent = song;
+    playlist.appendChild(div);
   });
-});
+}
